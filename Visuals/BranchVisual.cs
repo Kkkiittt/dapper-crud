@@ -1,11 +1,14 @@
-﻿using CompanyCrud.Services;
+﻿using CompanyCrud.Application.Interfaces.Services;
 
-namespace CompanyCrud.Visuals;
+namespace CompanyCrud.Cons.Visuals;
 
-internal class BranchVisual
+public class BranchVisual
 {
-	private readonly BranchService _serv;
-	public BranchVisual(DbContext db) => _serv = new(db);
+	private readonly IBranchService _serv;
+	public BranchVisual(IBranchService serv)
+	{
+		_serv = serv;
+	}
 
 	public void Show()
 	{

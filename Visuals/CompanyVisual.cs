@@ -1,14 +1,16 @@
-﻿using CompanyCrud.Services;
+﻿using CompanyCrud.Application.Interfaces.Services;
+using CompanyCrud.Infrastructure;
+using CompanyCrud.Infrastructure.Services;
 
-namespace CompanyCrud.Visuals;
+namespace CompanyCrud.Cons.Visuals;
 
-internal class CompanyVisual
+public class CompanyVisual
 {
-	private readonly CompanyService _serv;
+	private readonly ICompanyService _serv;
 
-	public CompanyVisual(DbContext db)
+	public CompanyVisual(ICompanyService serv)
 	{
-		_serv = new(db);
+		_serv = serv;
 	}
 
 	public void Show()

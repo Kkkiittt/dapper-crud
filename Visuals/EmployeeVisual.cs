@@ -1,14 +1,14 @@
-﻿using CompanyCrud.Services;
+﻿using CompanyCrud.Application.Interfaces.Services;
 
-namespace CompanyCrud.Visuals;
+namespace CompanyCrud.Cons.Visuals;
 
-internal class EmployeeVisual
+public class EmployeeVisual
 {
-	private readonly EmployeeService _serv;
+	private readonly IEmployeeService _serv;
 
-	public EmployeeVisual(DbContext db)
+	public EmployeeVisual(IEmployeeService serv)
 	{
-		_serv = new(db);
+		_serv = serv;
 	}
 
 	public void Show()

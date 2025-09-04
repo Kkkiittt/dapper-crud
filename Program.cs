@@ -1,9 +1,8 @@
-﻿using System.Reflection;
+﻿using CompanyCrud.Cons.Visuals;
+using CompanyCrud.Infrastructure;
+using CompanyCrud.Infrastructure.Services;
 
-using CompanyCrud.Services;
-using CompanyCrud.Visuals;
-
-namespace CompanyCrud;
+namespace CompanyCrud.Cons;
 internal class Program
 {
 	private readonly DbContext _db;
@@ -20,10 +19,10 @@ internal class Program
 	public Program()
 	{
 		_db = new();
-		_company = new(_db);
-		_department = new(_db);
-		_branch = new(_db);
-		_employee = new(_db);
+		_company = new(new CompanyService(_db));
+		_department = new(new DepartmentService(_db));
+		_branch = new(new BranchService(_db));
+		_employee = new(new EmployeeService(_db));
 	}
 	public void Work()
 	{

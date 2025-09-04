@@ -1,14 +1,16 @@
-﻿using CompanyCrud.Services;
+﻿using CompanyCrud.Application.Interfaces.Services;
+using CompanyCrud.Infrastructure;
+using CompanyCrud.Infrastructure.Services;
 
-namespace CompanyCrud.Visuals;
+namespace CompanyCrud.Cons.Visuals;
 
-internal class DepartmentVisual
+public class DepartmentVisual
 {
-	private readonly DepartmentService _serv;
+	private readonly IDepartmentService _serv;
 
-	public DepartmentVisual(DbContext db)
+	public DepartmentVisual(IDepartmentService serv)
 	{
-		_serv = new(db);
+		_serv = serv;
 	}
 
 	public void Show()
